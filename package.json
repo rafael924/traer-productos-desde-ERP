@@ -1,0 +1,13 @@
+{
+  "name": "traer-productos-desde-erp",
+  "version": "1.0.0",
+  "description": "Extraccion simple de datos del ERP Viditec",
+  "main": "fetch-all.js",
+  "scripts": {
+    "fetch": "node fetch-all.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "license": "MIT"
+}
