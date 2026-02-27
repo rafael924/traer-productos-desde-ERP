@@ -11,10 +11,11 @@ const TOKEN  = 'viditec_token_imp';
 const TOKEN2 = 'viditec_vtex_token'; // marcas usan token distinto
 
 const ENDPOINTS = {
-  productos:  BASE + '?name=' + USER + '&file=get_productos_fecha_imp&token_api_crm_viditec=' + TOKEN + '&limit=10000',
-  categorias: BASE + '?name=' + USER + '&file=get_categorias_imp&token_api_crm_viditec=' + TOKEN,
-  marcas:     BASE + '?name=' + USER + '&file=get_marcas&token_api_crm_viditec=' + TOKEN2 + '&limit=10000',
-  imagenes:   BASE + '?name=' + USER + '&file=get_archivos_fecha_imp&token_api_crm_viditec=' + TOKEN + '&limit=10000',
+  productos:        BASE + '?name=' + USER + '&file=get_productos_fecha_imp&token_api_crm_viditec=' + TOKEN + '&limit=10000',
+  categorias_imp:   BASE + '?name=' + USER + '&file=get_categorias_imp&token_api_crm_viditec=' + TOKEN,
+  categorias:       BASE + '?name=' + USER + '&file=get_categorias&token_api_crm_viditec=' + TOKEN,
+  marcas:           BASE + '?name=' + USER + '&file=get_marcas&token_api_crm_viditec=' + TOKEN2 + '&limit=10000',
+  imagenes:         BASE + '?name=' + USER + '&file=get_archivos_fecha_imp&token_api_crm_viditec=' + TOKEN + '&limit=10000',
 };
 
 async function fetchYGuardar(nombre, url) {
@@ -31,10 +32,11 @@ async function fetchYGuardar(nombre, url) {
 (async () => {
   console.log('\nIniciando extraccion ERP Viditec...\n');
   try {
-    await fetchYGuardar('productos',  ENDPOINTS.productos);
-    await fetchYGuardar('categorias', ENDPOINTS.categorias);
-    await fetchYGuardar('marcas',     ENDPOINTS.marcas);
-    await fetchYGuardar('imagenes',   ENDPOINTS.imagenes);
+    await fetchYGuardar('productos',       ENDPOINTS.productos);
+    await fetchYGuardar('categorias_imp',  ENDPOINTS.categorias_imp);
+    await fetchYGuardar('categorias',      ENDPOINTS.categorias);
+    await fetchYGuardar('marcas',          ENDPOINTS.marcas);
+    await fetchYGuardar('imagenes',        ENDPOINTS.imagenes);
     console.log('\nExtraccion completada!');
   } catch (err) {
     console.error('Error:', err.message);
